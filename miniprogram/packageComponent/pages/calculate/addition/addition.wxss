@@ -1,3 +1,4 @@
+
 .flex-wrp{
   margin-top: 30px;
   display:flex;
@@ -11,4 +12,29 @@
   margin: 0 auto;
   width: 150px;
   height: 100px;
+}
+.title-hint{
+  text-align: center; 
+  font-size: 26px;
+  /* margin-top: 50px; */
+}
+
+.flex-square{
+  /* background-color: #1AAD19; */
+  background-image: url(https://umeta.oss-cn-beijing.aliyuncs.com/wx_programgreen_grid1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: #353535;
+}
+.flex-square-text{
+  /* content: 'A'; */
+  font-size: 28px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

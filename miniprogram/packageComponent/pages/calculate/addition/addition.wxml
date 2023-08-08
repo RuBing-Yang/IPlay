@@ -1,31 +1,30 @@
-<import src="../../../common/head.wxml" />
-<import src="../../../common/foot.wxml" />
+
+
+<audio id="hint-audio" bindended="hintEnd" src="https://umeta.oss-cn-beijing.aliyuncs.com/audio/addition_hint.m4a" hidden="true"></audio>
+<audio id="hint-number-audio" src="{{'https://umeta.oss-cn-beijing.aliyuncs.com/audio/addition_' + target + '.m4a'}}" hidden="true"></audio>
+<audio id="result-audio" src="{{'https://umeta.oss-cn-beijing.aliyuncs.com/audio/' + result + '_answer.m4a'}}" hidden="true"></audio>
 
 <view class="container page" data-weui-theme="{{theme}}">
-  <template is="head" data="{{title: 'addition'}}"/>
   <view class="page-body">
+    <image bindtap="changeAudio" src="{{'https://umeta.oss-cn-beijing.aliyuncs.com/wx_programaudio_' + audio_status + '.png'}}" style="width: 25px; height: 25px; margin-top:20px; margin-left: 20px;"></image>
+    <view class="title-hint">
+      相加起来和为: <text style="color: crimson; font-weight: bold; font-size: 32px">{{target}}</text>
+    </view>
     <view class="page-section">
-      <view class="page-section-title">
-        <text>flex-direction: row\n横向布局</text>
-      </view>
       <view class="page-section-spacing">
-        <view class="flex-wrp" style="flex-direction:row;">
-          <view class="flex-item demo-text-1"></view>
-          <view class="flex-item demo-text-2"></view>
-          <view class="flex-item demo-text-3"></view>
+        <view class="flex-wrp" id="border" style="flex-direction:column; align-items: center;">
+          <view wx:for-items="{{rows}}" wx:for-item="row" class="flex-wrp" style="flex-direction:row;">
+            <view wx:for-items="{{row}}" wx:for-item="item" wx:key="*this" class="flex-item flex-square animated {{item.isHide ? 'fadeOut' : ''}}" style="width:{{height}}px; height:{{height}}px;" bindtap="clickNum" data-id='{{item.id}}' data-value='{{item.value}}'>
+              <text class="flex-square-text">{{item.value}}</text>
+            </view>
+            <!-- <image src="https://umeta.oss-cn-beijing.aliyuncs.com/wx_programgreen_grid1.png" class="img animated fadeOut" bindtap="fadeInOut" hidden="{{isHide}}"></image> -->
+          </view>
         </view>
       </view>
     </view>
-    <view class="page-section">
-      <view class="page-section-title">
-        <text>flex-direction: column\n纵向布局</text>
-      </view>
-      <view class="flex-wrp" style="flex-direction:column;">
-        <view class="flex-item flex-item-V demo-text-1"></view>
-        <view class="flex-item flex-item-V demo-text-2"></view>
-        <view class="flex-item flex-item-V demo-text-3"></view>
-      </view>
+    <view class="title-hint" hidden="{{result==''}}" style="color: {{result == 'correct' ? 'seagreen' : 'crimson'}}; font-weight: bold;">
+      {{result == 'correct' ? '回答正确' : '回答错误'}}
     </view>
+    <button type="primary" type="default" bindtap="nextQuestion" hidden="{{result==''}}" plain="true" style="margin-top: 30px;">下一题</button>
   </view>
-  <template is="foot" />
 </view>

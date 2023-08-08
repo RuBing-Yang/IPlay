@@ -20,8 +20,8 @@
                     <view class="navigator-text">{{page.name}}</view>
                     <view class="navigator-arrow"></view>
                   </navigator>
-                  <navigator wx:elif="{{page.name}}" url="/packageComponent/pages/{{item.id}}/{{page.folder}}/{{page.folder}}" class="navigator">
-                    <view class="navigator-text">{{page.name}}</view>
+                  <navigator wx:elif="{{page.text}}" url="/packageComponent/pages/{{item.id}}/{{page.name}}/{{page.name}}" class="navigator">
+                    <view class="navigator-text">{{page.text}}</view>
                     <view class="navigator-arrow"></view>
                   </navigator>
                   <navigator wx:else url="/packageComponent/pages/{{item.id}}/{{page}}/{{page}}" class="navigator">

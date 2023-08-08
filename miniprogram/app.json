@@ -9,6 +9,7 @@
     {
       "root": "packageComponent",
       "pages": [
+        "pages/calculate/addition/addition",
         "pages/view/view/view",
         "pages/view/scroll-view/scroll-view",
         "pages/view/swiper/swiper",
@@ -226,7 +227,7 @@
         "pagePath": "page/component/index",
         "iconPath": "@iconPathComponent",
         "selectedIconPath": "@selectedIconPathComponent",
-        "text": "组件"
+        "text": "功能模块"
       },
       {
         "pagePath": "page/extend/index",

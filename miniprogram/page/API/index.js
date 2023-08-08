@@ -7,7 +7,8 @@ Page({
   },
 
   data: {
-    list: [{
+    list:
+    [{
       id: 'api',
       name: '开放接口',
       open: false,

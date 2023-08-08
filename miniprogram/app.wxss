@@ -1,5 +1,5 @@
 @import "./page/common/lib/weui.wxss";
-
+@import './page/common/lib/animate.wxss';
 
 /* reset */
 page {
@@ -209,11 +209,15 @@ input {
 }
 
 .demo-text-1{
+  /* background-color: #1AAD19; */
+  background-image: url(https://umeta.oss-cn-beijing.aliyuncs.com/wx_programgreen_grid.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   position: relative;
   align-items: center;
   justify-content: center;
-  background-color: #1AAD19;
-  color: #FFFFFF;
+  color: #353535;
   font-size: 18px;
 }
 .demo-text-1:before{
