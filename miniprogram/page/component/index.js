@@ -20,12 +20,12 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '小程序官方组件展示',
+      title: 'old man 的游戏',
       path: 'page/component/index'
     }
   },
   onShareTimeline() {
-    '小程序官方组件展示'
+    'old man 的游戏'
   },
 
   data: {

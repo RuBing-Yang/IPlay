@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "加法凑数"
+  "navigationBarTitleText": "加法凑数",
+  "disableScroll": true
 }

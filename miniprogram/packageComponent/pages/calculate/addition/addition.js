@@ -61,8 +61,13 @@ Page({
       wx.createAudioContext('hint-audio').play();
     var target_cnt = Math.floor(Math.random() * 2 + 2);
     var noise_cnt = Math.floor(Math.random() * 2 + 2);
+
     this.randTarget(target_cnt);
     this.randNoise(noise_cnt);
+    // this.setData({
+    //   target: 7,
+    //   nums: [4, 4, 3, 7]
+    // })
 
     // 打乱顺序
     var nums = this.data.nums;
@@ -119,12 +124,14 @@ Page({
   // 点击数字事件
   clickNum(e) {
     if (this.data.result != '') return;
+    var isHide = e.currentTarget.dataset.isHide;
+    if (isHide) return;
 
     var id = e.currentTarget.dataset.id;
     var value = e.currentTarget.dataset.value;
     var nums = this.data.nums;
+    console.log("clickNum", id, value, isHide, nums);
     nums.splice(nums.indexOf(value), 1);
-    console.log("clickNum", id, value, nums);
 
     // 渐出动画效果
     var row_num = 3;
@@ -136,9 +143,6 @@ Page({
     });
 
     // 检查是否正确
-
-    console.log('isCorrect', this.isCorrect());
-    console.log('findTarget', this.findTarget(0, 0));
     if (this.isCorrect()) {
       this.setData({
         result: 'correct'
@@ -149,7 +153,6 @@ Page({
       this.setData({
         result: 'wrong'
       })
-      
       if (this.data.audio_status == 'fill')
         wx.createAudioContext('result-audio').play();
     }
@@ -169,6 +172,7 @@ Page({
   findTarget(i, sum) {
     var num = this.data.nums[i];
     var target = this.data.target;
+    console.log('findTarget', i, sum, num);
     if (sum + num == target) return true;
     if (i >= this.data.nums.length - 1) return false;
     if (sum + num < target) {
@@ -183,7 +187,7 @@ Page({
       target: 0,
       nums: [],
       rows: [],
-      result: false
+      result: ''
     })
     this.initNums();
   }

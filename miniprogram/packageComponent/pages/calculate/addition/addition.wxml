@@ -14,7 +14,7 @@
       <view class="page-section-spacing">
         <view class="flex-wrp" id="border" style="flex-direction:column; align-items: center;">
           <view wx:for-items="{{rows}}" wx:for-item="row" class="flex-wrp" style="flex-direction:row;">
-            <view wx:for-items="{{row}}" wx:for-item="item" wx:key="*this" class="flex-item flex-square animated {{item.isHide ? 'fadeOut' : ''}}" style="width:{{height}}px; height:{{height}}px;" bindtap="clickNum" data-id='{{item.id}}' data-value='{{item.value}}'>
+            <view wx:for-items="{{row}}" wx:for-item="item" wx:key="*this" class="flex-item flex-square animated {{item.isHide ? 'fadeOut' : ''}}" style="width:{{height}}px; height:{{height}}px;" bindtouchstart="clickNum" data-id='{{item.id}}' data-value='{{item.value}}' data-is-Hide='{{item.isHide}}'>
               <text class="flex-square-text">{{item.value}}</text>
             </view>
             <!-- <image src="https://umeta.oss-cn-beijing.aliyuncs.com/wx_programgreen_grid1.png" class="img animated fadeOut" bindtap="fadeInOut" hidden="{{isHide}}"></image> -->
@@ -25,6 +25,6 @@
     <view class="title-hint" hidden="{{result==''}}" style="color: {{result == 'correct' ? 'seagreen' : 'crimson'}}; font-weight: bold;">
       {{result == 'correct' ? '回答正确' : '回答错误'}}
     </view>
-    <button type="primary" type="default" bindtap="nextQuestion" hidden="{{result==''}}" plain="true" style="margin-top: 30px;">下一题</button>
+    <button type="primary" type="default" bindtouchstart="nextQuestion" hidden="{{result==''}}" plain="true" style="margin-top: 30px;">下一题</button>
   </view>
 </view>
